@@ -1,0 +1,30 @@
+const int waterSens = A0;
+const int buzzer = 8;
+int relay=11;
+int sensorValue;
+
+void setup() {
+ 
+pinMode(relay,OUTPUT) ;
+//digitalWrite(relay,LOW);
+pinMode(buzzer, OUTPUT);
+pinMode(waterSens, INPUT);      
+    }
+// digitalWrite(relay,LOW);
+void loop() {
+  
+ Serial.begin(9600);
+  //digitalWrite(relay,HIGH);
+   sensorValue = analogRead(waterSens);
+      
+if (sensorValue >= 50)
+{  
+    digitalWrite(relay,HIGH);
+    //tone(buzzer, 800,800);
+   // delay(1000);
+     }
+ else
+ {  
+      digitalWrite(relay,LOW);
+ }
+}
